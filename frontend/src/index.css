@@ -5,3 +5,7 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+@theme {
+  --color-main-red : #ea2e0e ;
+}

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout";
 import Home from "./pages/Home";
-import { Toaster } from "sonner"
+import { Toaster } from "sonner";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
@@ -11,12 +11,14 @@ import Checkout from "./components/Cart/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import OrderDetails from "./pages/OrderDetails";
 import MyOrdersPage from "./pages/MyOrdersPage";
+import AdminLayout from "./components/Admin/AdminLayout";
+import AdminHomePage from "./pages/AdminHomePage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Toaster position="top-right" richColors />
+        <Toaster position="top-right" richColors />
         <Routes>
           <Route path="/" element={<UserLayout />}>
             {/* User Layout */}
@@ -24,14 +26,20 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="collections/:collection" element={<CollectionPage />} />
+            <Route
+              path="collections/:collection"
+              element={<CollectionPage />}
+            />
             <Route path="product/:id" element={<ProductDetails />} />
             <Route path="checkout" element={<Checkout />} />
-            <Route path="/order-confirmation" element={<OrderConfirmation/>} />
+            <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/order/:id" element={<OrderDetails />} />
             <Route path="/my-orders" element={<MyOrdersPage />} />
           </Route>
-          <Route>{/* Admin Layout */}</Route>
+          <Route path="/admin" element={<AdminLayout />}>
+            {/* Admin Layout */}
+            <Route index element={<AdminHomePage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
